@@ -12,6 +12,10 @@
 
   Drupal.behaviors.readyFormat = {
     attach: function(context, settings) {
+      if ($('body').hasClass('page-search-ting')) {
+        $('.pane-ding-toggle-format-toggle').insertBefore('.pane-search-result-count');
+      }
+
       $('#ding-toggle-format', context).ready(function() {
         var format = ($.cookie('ding_toggle_format')) ? $.cookie('ding_toggle_format') : 'long';
         Drupal.setFormat(format);
